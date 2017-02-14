@@ -4,7 +4,7 @@
 
 [Installation instructions](https://github.com/Parsimotion/lib-coffee-seed/wiki/Installation-Instructions)
 
-# Para publicar en npm
+# Publish instructions
 
 ``` Console
 > grunt bump:[patch|minor|major]
