@@ -7,14 +7,14 @@
 # Para publicar en npm
 
 ``` Console
-grunt bump:patch|minor|major
-git push origin master --tags
-npm install . -g 
+> grunt bump:[patch|minor|major]
+> git push origin master --tags
+> npm install . -g 
 ```
-Try your package in some project and make sure it works.
+Test your package in some project and make sure it works.
 When you are absolutely sure
 
 ``` Console
-npm publish
+> npm publish
 
 ```
