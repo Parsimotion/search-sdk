@@ -8,13 +8,13 @@
 
 ``` Console
 > grunt bump:[patch|minor|major]
-> git push origin master --tags
 > npm install . -g 
 ```
 Test your package in some project and make sure it works.
 When you are absolutely sure
 
 ``` Console
+> git push origin master
+> git push origin master --tags
 > npm publish
-
 ```
