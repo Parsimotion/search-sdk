@@ -20,7 +20,7 @@
     "grunt-bump": "0.8.0",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-coffee": "1.0.0",
-    "grunt-mocha-test": "0.12.7",
+    "grunt-mocha-test": "0.13.2",
     "lodash": "4.15.0",
     "mocha": "3.0.2",
     "should": "11.1.0"
