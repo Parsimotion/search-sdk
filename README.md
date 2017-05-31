@@ -7,8 +7,8 @@
 # Publish instructions
 
 ``` Console
-> grunt bump:[patch|minor|major]
-> npm install . -g 
+> grunt bump:[major|minor|patch]
+> npm install . -g # Optional
 ```
 Test your package in some project and make sure it works.
 When you are absolutely sure
