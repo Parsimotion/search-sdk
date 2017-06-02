@@ -8,7 +8,11 @@
 
 ``` Console
 > grunt bump:[major|minor|patch]
-> npm install . -g # Optional
+#If you'd like to test it in your local environment
+> npm install . -g 
+or
+> cd path/to/project/that/uses/this/package
+> npm install path/to/this/package
 ```
 Test your package in some project and make sure it works.
 When you are absolutely sure
