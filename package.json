@@ -1,7 +1,7 @@
 {
-  "name": "lib-coffee-seed",
+  "name": "search-sdk",
   "version": "0.0.0",
-  "description": "lib-coffee-seed",
+  "description": "search-sdk",
   "main": "index.js",
   "scripts": {
     "test": "grunt test",
@@ -9,10 +9,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Parsimotion/lib-coffee-seed.git"
+    "url": "git+https://github.com/Parsimotion/search-sdk.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "azure-search": "0.0.16"
+  },
   "devDependencies": {
+    "async": "^2.5.0",
     "bluebird": "3.5.0",
     "coffee-script": "1.12.4",
     "grunt": "1.0.1",
@@ -22,12 +25,13 @@
     "grunt-mocha-test": "0.13.2",
     "lodash": "4.17.4",
     "mocha": "3.2.0",
+    "request": "^2.81.0",
     "should": "11.2.1"
   },
   "author": "Parsimotion",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Parsimotion/lib-coffee-seed/issues"
+    "url": "https://github.com/Parsimotion/search-sdk/issues"
   },
-  "homepage": "https://github.com/Parsimotion/lib-coffee-seed#readme"
+  "homepage": "https://github.com/Parsimotion/search-sdk#readme"
 }

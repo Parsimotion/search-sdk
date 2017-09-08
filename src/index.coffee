@@ -1,2 +1,2 @@
 
-module.exports = require "./lib-coffee-seed"
+module.exports = require "./search"
