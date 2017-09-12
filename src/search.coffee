@@ -17,7 +17,13 @@ module.exports =
       .spread (items, response) ->
         __ignoreType = (value, key) -> _.endsWith key, "@odata.type"
         next = _(response["@search.nextPageParameters"]).omit(__ignoreType).value()
-        facets = _(response["@search.facets"]).omit(__ignoreType).pairs().map(({ key, value }) -> { key, value }).value()
+        facets = 
+          _ response["@search.facets"]
+            .omit __ignoreType
+            .entries()
+            .map ([key, value]) -> { key, value }
+            .value()
+            
         count = response["@odata.count"]
 
         { items, facets, next, count }
