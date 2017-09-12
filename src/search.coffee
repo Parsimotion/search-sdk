@@ -19,7 +19,7 @@ module.exports =
         next = _(response["@search.nextPageParameters"]).omit(__ignoreType).value()
         facets = 
           _ response["@search.facets"]
-            .omit __ignoreType
+            .omitBy __ignoreType
             .entries()
             .map ([key, value]) -> { key, value }
             .value()
