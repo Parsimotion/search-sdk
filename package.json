@@ -12,7 +12,8 @@
     "url": "git+https://github.com/Parsimotion/search-sdk.git"
   },
   "dependencies": {
-    "azure-search": "0.0.16"
+    "azure-search": "0.0.16",
+    "taim": "^1.0.2"
   },
   "devDependencies": {
     "async": "^2.5.0",

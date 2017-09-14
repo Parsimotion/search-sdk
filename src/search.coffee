@@ -9,8 +9,11 @@ module.exports =
     constructor: ({ url, key, @index, @facets }) ->
       @client = Promise.promisifyAll new AzureSearch({ url, key }), multiArgs: true
 
-    save: (docs) ->
+    save: (docs...) ->
       @client.updateOrUploadDocumentsAsync @index, docs
+
+    remove: (ids...) ->
+      @client.deleteDocumentsAsync @index, id
 
     find: (query = {}) ->
       @client.searchAsync @index, _.merge({ @facets, count: true }, query)
