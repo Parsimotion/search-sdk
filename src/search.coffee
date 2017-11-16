@@ -30,3 +30,6 @@ module.exports =
         count = response["@odata.count"]
 
         { items, facets, next, count }
+
+    suggest: (query = {}) ->
+      @client.suggestAsync(@index, _.merge({ suggesterName: "sg" }, query)).get "0"
