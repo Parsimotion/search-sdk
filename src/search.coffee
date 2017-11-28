@@ -13,7 +13,7 @@ module.exports =
       @client.updateOrUploadDocumentsAsync @index, docs
 
     remove: (ids...) =>
-      @client.deleteDocumentsAsync @index, id
+      @client.deleteDocumentsAsync @index, ids
 
     find: (query = {}) =>
       @client.searchAsync @index, _.merge({ @facets, count: true }, query)
