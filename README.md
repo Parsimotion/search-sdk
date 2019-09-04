@@ -4,21 +4,25 @@
 
 [Installation instructions](https://github.com/Parsimotion/search-sdk/wiki/Installation-Instructions)
 
-# Publish instructions
+# Examples
 
-``` Console
-> grunt bump:[major|minor|patch]
-#If you'd like to test it in your local environment
-> npm install . -g 
-or
-> cd path/to/project/that/uses/this/package
-> npm install path/to/this/package
-```
-Test your package in some project and make sure it works.
-When you are absolutely sure
+``` javascript
+const search = new AzureSearch({ 
+  url :: String, 
+  key :: String,
+  index :: String,
+  facets :: [String]
+})
 
-``` Console
-> git push origin master
-> git push origin master --tags
-> npm publish
+search.find({
+  skip :: Int,
+  top :: Int,
+  select :: String,
+  filter: String // field1 eq 'something'
+}) :: {
+  items :: [Object],
+  count :: Int,
+  facets :: [{ key: String, value: Int }]
+}
+
 ```
