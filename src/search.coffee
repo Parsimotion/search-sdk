@@ -33,3 +33,18 @@ module.exports =
 
     suggest: (query = {}) =>
       @client.suggestAsync(@index, _.merge({ suggesterName: "sg" }, query)).get "0"
+
+    reverseStream: (query = {}) =>
+      @find _.assign(query, { top: 0 })
+      .then ({ count }) =>
+        _requestPage = (skip = count - pageSize) =>
+          top = Math.min pageSize, pageSize + skip  # If skip is < 0 => pageSize + skip = remaining elements
+          skip = Math.max 0, skip
+          @find _.merge({ skip, top }, query)
+          .then ({ items }) => {
+            items,
+            nextToken: items.length == pageSize && skip > 0 ? skip - pageSize : null
+          }
+
+        stream: new HighlandPagination(_requestPage).stream()
+        count: count
