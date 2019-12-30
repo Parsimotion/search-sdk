@@ -3,6 +3,9 @@ Promise = require "bluebird"
 
 AzureSearch = require "azure-search"
 
+highland = "highland"
+HighlandPagination = require "highland-pagination"
+
 module.exports =
   class Search
 
