@@ -40,7 +40,7 @@ module.exports =
         _requestPage = (skip = count - pageSize) =>
           top = Math.min pageSize, pageSize + skip  # If skip is < 0 => pageSize + skip = remaining elements
           skip = Math.max 0, skip
-          @find _.assign(query, { skip, top })
+          @find _.merge({ skip, top }, query)
           .then ({ items }) => {
             items,
             nextToken: items.length == pageSize && skip > 0 ? skip - pageSize : null
