@@ -37,7 +37,7 @@ module.exports =
     suggest: (query = {}) =>
       @client.suggestAsync(@index, _.merge({ suggesterName: "sg" }, query)).get "0"
 
-    reverseStream: (query = {}) =>
+    reverseStream: (query = {}, pageSize = 10) =>
       @find _.assign(query, { top: 0 })
       .then ({ count }) =>
         _requestPage = (skip = count - pageSize) =>
