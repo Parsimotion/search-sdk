@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "azure-search": "0.0.16",
-    "lodash": "4.17.4"
+    "lodash": "4.17.19"
   },
   "devDependencies": {
     "async": "^2.5.0",
