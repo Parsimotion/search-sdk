@@ -41,6 +41,8 @@ module.exports =
       @find _.merge({ top: 0 }, query)
       .then ({ count }) =>
         _requestPage = (skip = count - pageSize) =>
+          skip = Math.min 100000, skip # Max items to skip in search (azure limit)
+          
           top = Math.min pageSize, pageSize + skip  # If skip is < 0 => pageSize + skip = remaining elements
           skip = Math.max 0, skip
           @find _.merge({ skip, top }, query)
