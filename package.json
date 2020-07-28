@@ -1,6 +1,6 @@
 {
   "name": "search-sdk",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "search-sdk",
   "main": "index.js",
   "scripts": {
