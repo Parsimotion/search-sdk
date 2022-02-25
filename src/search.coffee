@@ -1,5 +1,6 @@
 _ = require "lodash"
 Promise = require "bluebird"
+retry = require "bluebird-retry"
 
 AzureSearch = require "azure-search"
 
@@ -41,15 +42,16 @@ module.exports =
       @find _.merge({ top: 0 }, query)
       .then ({ count }) =>
         _requestPage = (skip = count - pageSize) =>
-          skip = Math.min 100000, skip # Max items to skip in search (azure limit)
+          retry =>
+            skip = Math.min 100000, skip # Max items to skip in search (azure limit)
           
-          top = Math.min pageSize, pageSize + skip  # If skip is < 0 => pageSize + skip = remaining elements
-          skip = Math.max 0, skip
-          @find _.merge({ skip, top }, query)
-          .then ({ items }) => {
-            items,
-            nextToken: if items.length == pageSize && skip > 0 then (skip - pageSize) else null
-          }
+            top = Math.min pageSize, pageSize + skip  # If skip is < 0 => pageSize + skip = remaining elements
+            skip = Math.max 0, skip
+            @find _.merge({ skip, top }, query)
+            .then ({ items }) => {
+              items,
+              nextToken: if items.length == pageSize && skip > 0 then (skip - pageSize) else null
+            }
 
         stream: new HighlandPagination(_requestPage).stream()
         count: count

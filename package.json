@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "azure-search": "0.0.16",
+    "bluebird-retry": "^0.11.0",
     "lodash": "4.17.19"
   },
   "devDependencies": {
