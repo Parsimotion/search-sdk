@@ -17,7 +17,7 @@ module.exports =
       @client.updateOrUploadDocumentsAsync @index, docs
 
     remove: (ids...) =>
-      @client.deleteDocumentsAsync @index, ids
+      @client.deleteDocumentsAsync @index, _.flatten(ids)
 
     find: (query = {}) =>
       @client.searchAsync @index, _.merge({ @facets, count: true }, query)
